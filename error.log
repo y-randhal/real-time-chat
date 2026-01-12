@@ -1,0 +1,6 @@
+
+fatal: detected dubious ownership in repository at 'D:/Code/github-personal/real-time-chat/real-time-chat'
+'D:/Code/github-personal/real-time-chat/real-time-chat' is on a file system that does not record ownership
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory D:/Code/github-personal/real-time-chat/real-time-chat
