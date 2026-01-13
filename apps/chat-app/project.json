@@ -1,0 +1,22 @@
+{
+  "name": "chat-app",
+  "projectType": "application",
+  "sourceRoot": "apps/chat-app/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:application",
+      "options": {
+        "outputPath": "dist/apps/chat-app",
+        "index": "apps/chat-app/src/index.html",
+        "browser": "apps/chat-app/src/main.ts",
+        "tsConfig": "apps/chat-app/tsconfig.app.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "buildTarget": "chat-app:build"
+      }
+    }
+  }
+}
