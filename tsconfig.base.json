@@ -27,7 +27,7 @@
       "dom"
     ],
     "paths": {
-      "@real-time-chat/shared-models": ["dist/libs/shared-models"]
+      "@real-time-chat/shared-models": ["dist/libs/shared-models/src"]
     }
   },
   "angularCompilerOptions": {

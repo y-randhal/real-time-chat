@@ -9,6 +9,9 @@ export class ChatService {
   private socket?: Socket;
   
   public messages = signal<MessagePayload[]>([]);
+  public currentRoom = signal<string>('geral');
+  public username = signal<string>('');
+  public isJoined = signal<boolean>(false);
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
@@ -20,12 +23,20 @@ export class ChatService {
     }
   }
 
+  joinRoom(room: string, user: string) {
+    this.messages.set([]); // Limpa as mensagens da sala anterior no UI
+    this.currentRoom.set(room);
+    this.username.set(user);
+    this.isJoined.set(true);
+    this.socket?.emit('joinRoom', { room, user });
+  }
+  
   send(content: string) {
     const msg: MessagePayload = {
-      author: 'Angular Expert', 
+      author: this.username(),
       content,
       timestamp: new Date().toISOString(),
-      room: 'geral'
+      room: this.currentRoom() // Usa o valor do signal da sala atual
     };
     this.socket?.emit('sendMessage', msg);
   }

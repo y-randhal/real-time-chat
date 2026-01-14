@@ -1,1 +1,28 @@
-<router-outlet />
+<!-- <router-outlet /> -->
+@if (!chatService.isJoined()) {
+  <div class="join-container">
+    <h2>Join Chat</h2>
+    <input #usernameInput placeholder="Enter your username" type="text">
+    <input #roomInput placeholder="Enter room name" type="text" value="geral">
+    <button (click)="join(usernameInput.value, roomInput.value)">Join</button>
+  </div>
+} @else {
+  <div class="chat-container">
+    <div class="room-info">
+      <strong>Room:</strong> {{ chatService.currentRoom() }} | <strong>User:</strong> {{ chatService.username() }}
+    </div>
+    <div class="messages-list">
+      @for (msg of chatService.messages(); track msg.timestamp) {
+        <div class="message-item">
+          <strong>{{ msg.author }}:</strong> {{ msg.content }}
+          <small>{{ msg.timestamp | date:'shortTime' }}</small>
+        </div>
+      }
+    </div>
+
+    <div class="input-area">
+      <input #messageInput (keyup.enter)="send(messageInput)" placeholder="write y...">
+      <button (click)="send(messageInput)">Enviar</button>
+    </div>
+  </div>
+}
