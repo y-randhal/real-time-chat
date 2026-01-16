@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ChatService } from './services/chat';
-import { RouterOutlet } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
+import { Sidebar } from './components/sidebar/sidebar';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DatePipe],
+  imports: [DatePipe, Sidebar, NgClass],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

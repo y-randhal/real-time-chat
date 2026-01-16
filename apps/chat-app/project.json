@@ -9,7 +9,14 @@
         "outputPath": "dist/apps/chat-app",
         "index": "apps/chat-app/src/index.html",
         "browser": "apps/chat-app/src/main.ts",
-        "tsConfig": "apps/chat-app/tsconfig.app.json"
+        "tsConfig": "apps/chat-app/tsconfig.app.json",
+        "styles": [
+          "apps/chat-app/src/styles.css"
+        ],
+        "inlineStyleLanguage": "scss",
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/chat-app/src"]
+        }
       }
     },
     "serve": {

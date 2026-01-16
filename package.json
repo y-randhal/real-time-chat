@@ -28,6 +28,7 @@
     "@nx/js": "22.3.3",
     "@nx/nest": "^22.3.3",
     "@nx/workspace": "22.3.3",
+    "@tailwindcss/forms": "^0.5.11",
     "@types/jest": "^30.0.0",
     "nx": "22.3.3"
   }
